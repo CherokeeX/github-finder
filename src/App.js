@@ -8,6 +8,8 @@ function App() {
   <Navbar />
     <div className="container mt-3">
     <User />
+    <User />
+    <User />
     </div>
 
   

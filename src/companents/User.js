@@ -29,7 +29,7 @@ export class User extends Component {
           <div className="col-md-9">
                 <div className="card-body">
                     <h3 className="card-title">{this.state.name}</h3>
-                    <p> {this.state.username}</p>
+                    <p> {this.state.username}{<i class="bi bi-person-badge"></i>}</p>
                     
                     <a target ="_blank" className="btn btn-primary " href={this.state.github_url}> GitHUB PRofile</a>
                     <a target="_blank" className="btn btn-primary ms-2" href={this.state.website}> Web sayfasi {<i class="bi bi-robot"></i>}</a>
