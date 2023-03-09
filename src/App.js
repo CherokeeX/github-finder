@@ -1,5 +1,6 @@
 import Navbar from "./companents/Navbar";
 import User from "./companents/User";
+import Userlist from "./companents/Userlist";
 
 function App() {
   return (
@@ -7,9 +8,8 @@ function App() {
   <div>
   <Navbar />
     <div className="container mt-3">
-    <User />
-    <User />
-    <User />
+    <Userlist/>
+    
     </div>
 
   
