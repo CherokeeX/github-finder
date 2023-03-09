@@ -9,17 +9,27 @@ export class App extends Component {
 
   constructor(props) {
     super(props)
+
+    
   
     this.state = {
+      loading: false , 
        users : []
     }
   }
 
       componentDidMount(){
 
+        this.setState({loading:true});
+
+        setTimeout(()=> {
           fetch("https://api.github.com/users")
-          .then(response=>response.json())
-          .then(data => this.setState({users: data}));
+        .then(response=>response.json())
+        .then(data => this.setState({users: data, loading:false}));
+
+        },1500)
+
+          
           
 
 
@@ -35,7 +45,7 @@ export class App extends Component {
   <div>
   <Navbar />
     <div className="container mt-3">
-    <Userlist users={this.state.users}/>
+    <Userlist users={this.state.users} loading={this.state.loading}/>
     
     </div>
 
