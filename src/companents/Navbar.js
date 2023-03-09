@@ -7,7 +7,7 @@ export class Navbar extends Component {
       <nav className='navbar navbar-dark bg-primary'>
               <div className='container'>                                                      
                   <a href="/" className='navbar-brand'>
-                      <i class={this.props.icon}> {this.props.title}
+                      <i className={this.props.icon}> {this.props.title}
 
                       </i>
                   </a> 

@@ -19,10 +19,10 @@ export class User extends Component {
           <div className="col-md-9">
                 <div className="card-body">
                     <h3 className="card-title">{login}</h3>
-                    <p> {username}{<i class="bi bi-person-badge"></i>}</p>
+                    <p> {username}{<i className="bi bi-person-badge"></i>}</p>
                     
                     <a target ="_blank" rel="noreferrer"className="btn btn-primary " href={html_url}> GitHUB PRofile</a>
-                    <a target="_blank"rel="noreferrer" className="btn btn-primary ms-2" href={subscriptions_url}> Web sayfasi {<i class="bi bi-robot"></i>}</a>
+                    <a target="_blank"rel="noreferrer" className="btn btn-primary ms-2" href={subscriptions_url}> Web sayfasi {<i className="bi bi-robot"></i>}</a>
                 </div>
           </div>
         </div>

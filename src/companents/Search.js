@@ -1,17 +1,36 @@
 import React, { Component } from 'react'
 
 export class Search extends Component {
-  render() {
-    return (
+
+constructor(props) {
+  super(props)
+
+  this.state = {
+     keyword: ""
+  }
+}
+ onChange  = (e)=> {
+    this.setState({
+        keyword: e.target.value
+    })
+ }
+    
+ onSubmit = (e) =>{
+e.preventDefault();
+console.log(this.state.keyword);
+ }  
+ 
+ render() {
+    return (    
       <div className='container my-3'>
 
-        <form>
+        <form onSubmit={this.onSubmit}>
             <div className='input-group'>
-                    <input type="text" className='form-control' placeholder='What u Need'/>
-                    <button classNAme='btn btn-primary'type="submit">Search</button>
+                    <input type="text"  onChange={this.onChange} className='form-control' placeholder='What u Need'/>
+                    <button className='btn btn-primary'type="submit">Search</button>
                 
             </div>
-        </form>
+        </form> 
       </div>
     )
   }
