@@ -32,6 +32,10 @@ constructor(props) {
                 
             </div>
         </form> 
+        {
+            this.props.showClearButton && <button onClick={this.props.clearResults} className='btn btn-outline-danger mt-2 btn-block'>CLEAR RESULTS</button>
+        }
+        
       </div>
     )
   }

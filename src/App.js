@@ -24,7 +24,10 @@ export class App extends Component {
         .then((data) => this.setState({ users: data.items, loading: false }));
     }, 1000);
   };
+    clearResults = ()=> {
+        this.setState({users : []});
 
+    }
   /*
       componentDidMount(){
 
@@ -48,7 +51,7 @@ export class App extends Component {
     return (
       <div>
         <Navbar />
-        <Search searchUsers={this.searchUsers} />
+        <Search searchUsers={this.searchUsers} clearResults={this.clearResults} showClearButton={this.state.users.length > 0 ? true:false}/>
 
         <div className="container mt-3">
           <Userlist users={this.state.users} loading={this.state.loading} />
