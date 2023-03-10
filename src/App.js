@@ -19,6 +19,21 @@ export class App extends Component {
     }
   }
 
+searchUsers =(keyword) => {
+  
+
+    this.setState({loading:true});
+
+    setTimeout(()=> {
+      fetch("https://api.github.com/search/users?q="+ keyword)
+    .then(response=>response.json())
+    .then(data => this.setState({users: data.items, loading:false}));
+
+    },1500)
+
+}
+
+/*
       componentDidMount(){
 
         this.setState({loading:true});
@@ -36,7 +51,7 @@ export class App extends Component {
 
       }
 
-  
+  */
   render() {
 
 
@@ -45,7 +60,7 @@ export class App extends Component {
       
   <div>
   <Navbar />
-  <Search />
+  <Search serchUser={this.searchUsers}/>
   
     <div className="container mt-3">
     <Userlist users={this.state.users} loading={this.state.loading}/>

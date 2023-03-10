@@ -17,7 +17,7 @@ constructor(props) {
     
  onSubmit = (e) =>{
 e.preventDefault();
-console.log(this.state.keyword);
+this.props.searchUsers(this.state.keyword);
  }  
  
  render() {
