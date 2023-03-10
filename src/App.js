@@ -1,39 +1,31 @@
 import Navbar from "./companents/Navbar";
-import User from "./companents/User";
+
 import Userlist from "./companents/Userlist";
 import Search from "./companents/Search";
 
-
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export class App extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
 
-    
-  
     this.state = {
-      loading: false , 
-       users : []
-    }
+      loading: false,
+      users: [],
+    };
   }
 
-searchUsers =(keyword) => {
-  
+  searchUsers = (keyword) => {
+    this.setState({ loading: true });
 
-    this.setState({loading:true});
+    setTimeout(() => {
+      fetch("https://api.github.com/search/users?q=" + keyword)
+        .then((response) => response.json())
+        .then((data) => this.setState({ users: data.items, loading: false }));
+    }, 1000);
+  };
 
-    setTimeout(()=> {
-      fetch("https://api.github.com/search/users?q="+ keyword)
-    .then(response=>response.json())
-    .then(data => this.setState({users: data.items, loading:false}));
-
-    },1500)
-
-}
-
-/*
+  /*
       componentDidMount(){
 
         this.setState({loading:true});
@@ -53,27 +45,17 @@ searchUsers =(keyword) => {
 
   */
   render() {
-
-
-    
     return (
-      
-  <div>
-  <Navbar />
-  <Search serchUser={this.searchUsers}/>
-  
-    <div className="container mt-3">
-    <Userlist users={this.state.users} loading={this.state.loading}/>
-    
-    </div>
+      <div>
+        <Navbar />
+        <Search searchUsers={this.searchUsers} />
 
-  
-  </div>
-
-    ) 
+        <div className="container mt-3">
+          <Userlist users={this.state.users} loading={this.state.loading} />
+        </div>
+      </div>
+    );
   }
 }
 
-export default App
-
-
+export default App;
