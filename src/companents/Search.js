@@ -18,6 +18,7 @@ constructor(props) {
  onSubmit = (e) =>{
     e.preventDefault();
     this.props.searchUsers(this.state.keyword);
+    this.setState({keyword: ""});
  }  
  
  render() {
@@ -26,7 +27,7 @@ constructor(props) {
 
         <form onSubmit={this.onSubmit}>
             <div className='input-group'>
-                    <input type="text"  onChange={this.onChange} className='form-control' placeholder='What u Need'/>
+                    <input type="text"  value={this.state.keyword} onChange={this.onChange} className='form-control' placeholder='What u Need'/>
                     <button className='btn btn-primary'type="submit">Search</button>
                 
             </div>
