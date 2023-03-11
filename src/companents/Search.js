@@ -17,9 +17,15 @@ constructor(props) {
     
  onSubmit = (e) =>{
     e.preventDefault();
-    this.props.searchUsers(this.state.keyword);
-    this.setState({keyword: ""});
- }  
+    if (this.state.keyword === ''){
+      this.props.displayAlert (' Please enter keyword' , 'Warning');
+      
+    }
+    else{
+      this.props.searchUsers(this.state.keyword);
+      this.setState({keyword: ""});}
+
+     }  
  
  render() {
     return (    
